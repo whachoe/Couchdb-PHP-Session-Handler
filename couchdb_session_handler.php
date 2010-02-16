@@ -60,6 +60,9 @@
            $this->lifeTime = null;
            $this->initSessionData = null;
 
+           // Cleanup
+           $this->gc();
+
            return true;
        }
 
@@ -108,7 +111,7 @@
            return false;
        }
 
-       function gc($maxlifetime) {
+       function gc($maxlifetime=0) {
            $exp = time() - $this->lifeTime;
            $query =  "_design/sessions/_view/gc?endkey=\"".$exp."\"";
            
