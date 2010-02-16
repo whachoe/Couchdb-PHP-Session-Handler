@@ -1,0 +1,8 @@
+CouchdbSessionHandler - a PHP Session Handler using Couchdb as backend
+version 0.0.1
+    
+This class is more or less autoconfiguring.
+If it doesn't find the database it is pointed to in the config, it tries to make it
+and proceeds to load up the necessary design-docs it needs to function.
+   
+Jo Giraerts <jo.giraerts@gmail.com>
