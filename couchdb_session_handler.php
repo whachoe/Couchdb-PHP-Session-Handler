@@ -84,8 +84,9 @@
            $rev = '';
            if ($this->revision != '')
             $rev = '"_rev": "'.$this->revision.'",';
+           
+           $result = $this->send("PUT", ''. $sessionID, '{'.$rev.'"type": "session","data": "'.addslashes($data).'", "data_unencoded":'.json_encode($_SESSION).',  "expiration": "'.$exp.'"}');
 
-           $result = $this->send("PUT", ''. $sessionID, '{'.$rev.'"type": "session","data": "'.addslashes($data).'", "expiration": "'.$exp.'"}');
            if (isset($result->rev))
              $this->revision = $result->rev;
             
